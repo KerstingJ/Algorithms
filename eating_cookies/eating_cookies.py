@@ -8,18 +8,16 @@ import sys
 
 
 def eating_cookies(n, cache=None):
-    base = {
-        0: 1,
-        1: 1,
-        2: 2
-    }
+    base = [1, 1, 2]
 
     if n <= 3:
         return base[n]
-
-    x1 = 1
-    x2 = 1
-    x3 = 2
+    # after base case
+    # f(n) = f(n-3) + f(n-2) + f(n-1)
+    # Set up base case
+    x1 = base[0]
+    x2 = base[1]
+    x3 = base[2]
     for i in range(3, n):
         x3, x2, x1 = x1 + x2 + x3, x3, x2
 
