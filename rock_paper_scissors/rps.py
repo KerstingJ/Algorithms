@@ -22,6 +22,13 @@ def rock_paper_scissors(n):
 
         # this list comprehension looks so smoooooth
         cache[n] = [r + [m] for r in recurse(n-1) for m in moves]
+        # works out to
+        """
+        l = []
+        for r in recurse(n-1):
+          for m in moves:
+            l.append(r + [m])
+        """
 
         return cache[n]
 
