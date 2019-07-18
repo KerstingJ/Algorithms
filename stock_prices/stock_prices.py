@@ -8,19 +8,17 @@ def find_max_profit(prices):
     #  [1050, 270, 1540, 3800, 2]
     #                      h
     store = dict()
+    best = None
 
     for price in prices:
         for key in store:
             if store[key] is None or store[key] < price - key:
                 store[key] = price - key
 
+            if best is None or store[key] > best:
+                best = store[key]
+
         store[price] = -float("inf")
-
-    best = None
-
-    for key in store:
-        if best is None or store[key] > best:
-            best = store[key]
 
     return best
 
